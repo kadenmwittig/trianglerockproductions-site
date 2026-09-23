@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Triangle Rock Productions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px 80px;
+      padding: 60px 40px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .team-member {}
+
+    .team-photo {
+      aspect-ratio: 3 / 4;
+      background: #1a1a1a;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .team-photo img { }
+
+    .team-name {
+      font-family: var(--font);
+      font-size: clamp(22px, 2.5vw, 36px);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .team-bio {
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #bbb;
+    }
+
+    .mission-block {
+      padding: calc(var(--nav-h) + 60px) 40px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission-block h1 {
+      font-family: var(--font);
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    .mission-block p {
+      font-family: var(--font);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #ccc;
+    }
+
+    .mission-block .accent-line {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin: 32px auto;
+    }
+
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; padding: 40px 20px 60px; }
+      .mission-block { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="images/logo-icon.png" alt="Triangle Rock Productions" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- MISSION -->
+  <div class="mission-block">
+    <h1>About Us</h1>
+    <p>
+      Triangle Rock Productions is a full-service film and video production company driven
+      by a genuine love for the craft. Based in Oklahoma, we specialize in commercial video
+      and cinematic storytelling, with a portfolio spanning corporate, commercial, and
+      creative projects.
+    </p>
+    <div class="accent-line"></div>
+    <p>
+      We believe every great project deserves a dedicated partner. Triangle Rock works with
+      clients through every stage of production to tell their stories effectively. We
+      cultivate creativity by blending technical precision, storytelling sensibility, and
+      the passion needed to bring your vision to life.
+    </p>
+  </div>
+
+  <!-- TEAM -->
+  <p class="section-label">The Team</p>
+
+  <div class="team-grid">
+
+    <div class="team-member">
+      <div class="team-photo">
+        <img src="images/kaden-headshot.jpg" alt="Kaden Wittig" />
+      </div>
+      <p class="team-name">Kaden Wittig</p>
+      <p class="team-role">Co-Founder &nbsp;·&nbsp; Creative Lead</p>
+      <p class="team-bio">
+        Kaden Wittig is an independent filmmaker from Broken Arrow, Oklahoma, with years of
+        experience spanning feature films, broadcast television, and commercial video. His
+        work focuses on telling grounded, human stories through the medium of film. Starting
+        his filmmaking journey through home videos at the age of 6, he has since directed
+        multiple festival award-winning short films throughout high school and college —
+        including <em>Murder in Chinatown</em> (2026), which took 2nd Place Best Film at
+        the Summer 48 Hour Film Project — as well as the feature-length music documentary
+        <em>Pillar: Beyond the Frontline</em> (2025).<br><br>
+        Kaden is a graduate of Tulsa Technology's TV Production program, has an A.A.S. in
+        Liberal Arts, and graduated magna cum laude with a B.A. in Film and Media Studies
+        from the University of Oklahoma.<br><br>
+        As Co-Founder and Creative Lead, Kaden brings experience and a skillset to
+        collaborate with clients in reaching their vision. With a focus on high-end visual
+        storytelling and technical precision, Kaden leads the creative direction from
+        concept to creation, ensuring a high-quality cinematic production.
+      </p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-photo">
+        <img src="images/abigail-headshot.jpg" alt="Abigail Hutchcraft" />
+      </div>
+      <p class="team-name">Abigail Hutchcraft</p>
+      <p class="team-role">Co-Founder &nbsp;·&nbsp; Director of Operations</p>
+      <p class="team-bio">
+        Abigail Hutchcraft is from Broken Arrow, Oklahoma, and is currently pursuing a
+        Juris Doctor at Oklahoma City University School of Law. Prior to law school,
+        Abigail served as a paralegal in Tulsa and graduated magna cum laude from Oklahoma
+        State University with a B.S. in Political Science.<br><br>
+        As Co-Founder and Director of Operations, Abigail oversees the company's clerical
+        and administrative functions to ensure every project is supported by a strong
+        organizational foundation. Her film experience includes executive producing
+        <em>Murder in Chinatown</em> (2026), working as a production assistant on
+        <em>Night with a Nice Guy</em> (2025), <em>Up(LIFTING)</em> (2025),
+        and <em>From a Distance</em> (2026).
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Triangle Rock Productions</p>
+    <p><a href="index.html#contact" style="color: inherit;">Contact Us</a></p>
+  </footer>
+
+</body>
+</html>
