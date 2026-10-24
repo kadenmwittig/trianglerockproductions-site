@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classical Violence — Triangle Rock Productions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background-color: #0e0e0e;
+      background-image:
+        linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+        linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+        linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+      background-size: 40px 40px;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cv-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      text-align: center;
+    }
+
+    .cv-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(52px, 10vw, 120px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #8B0000;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: 56px;
+    }
+
+    .cv-credits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+
+    .cv-credit {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #888888;
+    }
+
+    .cv-credit span {
+      color: #cccccc;
+    }
+
+    .cv-pawn {
+      font-size: 48px;
+      color: #8B0000;
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+
+    .cv-coming-soon {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="images/logo-icon.png" alt="Triangle Rock Productions" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="cv-wrap">
+    <h1 class="cv-title">Classical Violence</h1>
+
+    <div class="cv-credits">
+      <p class="cv-credit">Directed by <span>Kaden Wittig</span></p>
+      <p class="cv-credit">Written by <span>Jason Ngo</span></p>
+      <p class="cv-credit">Produced by <span>Sully McCollum</span></p>
+    </div>
+
+    <div class="cv-pawn">♟</div>
+    <p class="cv-coming-soon">Coming Soon</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Triangle Rock Productions</p>
+    <p><a href="index.html" style="color: inherit;">← Back to Work</a></p>
+  </footer>
+
+</body>
+</html>

@@ -1,114 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classical Violence — Triangle Rock Productions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    body {
-      background-color: #0e0e0e;
-      background-image:
-        linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
-        linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
-        linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
-      background-size: 40px 40px;
-      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classical Violence — Triangle Rock Productions</title>
+<meta name="description" content="A disgraced boxer returns to the ring under the peculiar lights of chess-boxing. A narrative short from Triangle Rock Productions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Anton&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#B5120E;--bg:#0B0B0C;--fg:#EDEAE4;--muted:#A39E95;--mid:#C9C4BC;--border:#2A2826;--border2:#5A5650}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:var(--fg)}a:hover{color:var(--red)}
+img{display:block;max-width:100%}
 
-    .cv-wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 40px 80px;
-      text-align: center;
-    }
+/* NAV */
+header{position:relative;z-index:10;max-width:1240px;margin:0 auto;padding:24px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.nav-logo img{display:block;height:56px;width:auto}
+nav[aria-label="Main"]{display:flex;gap:28px;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+nav[aria-label="Main"] a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;color:var(--fg)}
+nav[aria-label="Main"] a:hover{color:var(--red)}
+.nav-cta{padding:0 16px;border:1px solid var(--red)!important}
 
-    .cv-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(52px, 10vw, 120px);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #8B0000;
-      line-height: 1;
-      text-transform: uppercase;
-      margin-bottom: 56px;
-    }
+/* HERO */
+.hero{position:relative;margin-top:-92px;padding:clamp(150px,16vw,220px) clamp(16px,4vw,48px) clamp(160px,18vw,240px);text-align:center;overflow:hidden}
+.hero-bg-img,.hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);pointer-events:none}
+.hero-bg-video{opacity:0;transition:opacity 1.6s ease}
+.hero-bg-video.ready{opacity:1}
+.hero-overlay-dark{position:absolute;inset:0;background:rgba(11,11,12,.5);pointer-events:none}
+.hero-overlay-radial{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(11,11,12,.35) 0%,rgba(11,11,12,0) 55%),radial-gradient(ellipse at 50% 50%,rgba(11,11,12,0) 45%,rgba(11,11,12,.75) 100%);pointer-events:none}
+.hero-overlay-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.7) 0%,rgba(11,11,12,0) 22%,rgba(11,11,12,0) 70%,#0B0B0C 100%);pointer-events:none}
+.hero-grain{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:overlay;opacity:.45;pointer-events:none}
+.hero-eyebrow{position:relative;margin:0 0 24px;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.hero-title{position:relative;margin:0;font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;filter:url(#grit);line-height:.88;text-transform:uppercase;color:var(--red);text-shadow:0 0 40px rgba(170,10,10,.5),0 2px 0 #000}
+.hero-title span{display:block;font-size:clamp(40px,11vw,158px);letter-spacing:-.01em}
+.hero-synopsis{position:relative;max-width:740px;margin:40px auto 0;font-size:clamp(18px,2vw,22px);line-height:1.55;color:var(--fg);text-shadow:0 1px 12px #000}
+.hero-ctas{position:relative;margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;background:var(--fg);color:var(--bg);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.btn-primary:hover{background:var(--mid);color:var(--bg)}
+.btn-outline{display:inline-flex;align-items:center;min-height:48px;padding:0 28px;border:1px solid var(--fg);background:rgba(11,11,12,.6);color:var(--fg);font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
 
-    .cv-credits {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 80px;
-    }
+/* CREDITS BAR */
+.credits-bar{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.credits-inner{max-width:1240px;margin:0 auto;padding:22px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;justify-content:center;gap:10px 48px;font-size:14px;color:var(--muted)}
+.credits-inner strong{color:var(--fg);font-weight:600}
 
-    .cv-credit {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #888888;
-    }
+/* SECTIONS */
+.section{max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px)}
+.section-heading{margin:0;font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;filter:url(#grit);font-size:clamp(34px,4.4vw,54px);letter-spacing:.03em;text-transform:uppercase;color:var(--red)}
 
-    .cv-credit span {
-      color: #cccccc;
-    }
+/* CHECKER BAND */
+.checker-band{height:48px;background:repeating-conic-gradient(var(--fg) 0 25%,var(--bg) 0 50%) 0 0/48px 48px}
+.checker-band-sm{height:24px;background:repeating-conic-gradient(var(--fg) 0 25%,var(--bg) 0 50%) 0 0/24px 24px}
 
-    .cv-pawn {
-      font-size: 48px;
-      color: #8B0000;
-      margin-bottom: 32px;
-      line-height: 1;
-    }
+/* TEASER */
+.cv-teaser{position:relative;aspect-ratio:16/9;background:#141416;border:1px solid var(--border);overflow:hidden}
+.cv-teaser iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.teaser-meta{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;justify-content:space-between;margin-bottom:24px}
+.teaser-note{margin:0;font-size:14px;color:var(--muted)}
 
-    .cv-coming-soon {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(18px, 3vw, 28px);
-      font-weight: 300;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: #555555;
-    }
-  </style>
+/* CHESS-BOXING SECTION */
+.sport-deckline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-bottom:28px;padding:8px 0;border-top:3px double var(--fg);border-bottom:1px solid var(--border2);font-family:'Old Standard TT',Georgia,serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid)}
+.sport-blurb{margin:12px 0 0;font-family:'Old Standard TT',Georgia,serif;font-style:italic;font-size:clamp(18px,2vw,22px);line-height:1.4;color:var(--mid)}
+.sport-blurb span{font-style:normal}
+.sport-box{position:relative;margin:32px 0 56px;border:1px solid var(--border2);overflow:hidden;display:flex;flex-wrap:wrap;gap:32px 48px;padding:clamp(32px,5vw,64px) clamp(20px,4vw,56px) clamp(72px,8vw,96px)}
+.sport-text{position:relative;z-index:1;flex:999 1 520px;min-width:0;columns:2 280px;column-gap:40px;column-rule:1px solid var(--border2);text-shadow:0 1px 10px rgba(0,0,0,.9);font-family:'Old Standard TT',Georgia,serif;font-size:18px;line-height:1.65;color:#D9D5CE}
+.sport-text p{margin:0 0 16px}
+.sport-text p:last-child{margin:0;font-size:14px;font-style:italic;color:var(--muted)}
+.sport-text .dropcap{float:left;font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;font-size:68px;line-height:.85;padding:6px 10px 0 0;color:var(--red);filter:url(#grit)}
+.sport-imagery{position:absolute;inset:0;z-index:0;margin:0;background:#141416;overflow:hidden}
+.sport-board{position:absolute;top:0;left:0;width:56%;height:100%;object-fit:cover;object-position:27% 50%;clip-path:polygon(0 0,78.6% 0,100% 100%,0 100%);filter:grayscale(1) contrast(1.15) brightness(1.15)}
+.sport-boxer{position:absolute;top:0;right:0;width:56%;height:100%;object-fit:cover;object-position:72% 50%;clip-path:polygon(0 0,100% 0,100% 100%,21.4% 100%);filter:grayscale(1) contrast(1.2) brightness(1.5)}
+.sport-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,11,12,.7) 0%,rgba(11,11,12,.56) 60%,rgba(11,11,12,.32) 100%);pointer-events:none}
+.sport-divider{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.sport-label{position:absolute;bottom:14px;z-index:1;padding:4px 10px;background:rgba(11,11,12,.75);font-family:'Old Standard TT',Georgia,serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--fg)}
+.sport-label-board{left:16px}
+.sport-label-ring{right:16px}
+.sport-grain{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:overlay;opacity:.6;pointer-events:none}
+.rules-label{margin:0 0 16px;padding-bottom:8px;border-bottom:3px double var(--fg);font-family:'Old Standard TT',Georgia,serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid)}
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border:2px solid var(--fg)}
+.rule-card{padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:14px;min-height:260px}
+.rule-card.light{background:var(--fg);color:var(--bg)}
+.rule-card.dark{background:var(--bg);color:var(--fg)}
+.rule-num{font-family:Anton,Impact,sans-serif;font-size:44px;line-height:1;letter-spacing:.02em}
+.rule-name{font-size:18px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.rule-text{font-size:15px}
+.rule-card.light .rule-text{color:#3A3733}
+.rule-card.dark .rule-text{color:var(--mid)}
+.rules-source{margin:14px 0 0;font-family:'Old Standard TT',Georgia,serif;font-size:14px;font-style:italic;color:var(--muted)}
+
+/* DETAILS BAND */
+.details-band{position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:clamp(56px,8vw,104px)}
+.details-checker-bg{position:absolute;inset:0;background:repeating-conic-gradient(var(--fg) 0 25%,var(--bg) 0 50%) 0 0/160px 160px;opacity:.07;pointer-events:none}
+.details-radial{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(11,11,12,.55) 0%,rgba(11,11,12,0) 75%);pointer-events:none}
+.details-inner{position:relative;max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:48px 72px}
+.film-info{flex:1 1 320px}
+.film-info dl{margin:28px 0 0;display:grid;grid-template-columns:max-content 1fr;gap:14px 28px;font-size:16px}
+.film-info dt{color:var(--muted)}
+.film-info dd{margin:0}
+.timeline{flex:999 1 460px;min-width:0}
+.timeline-eyebrow{margin:0 0 20px;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.timeline ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
+.timeline li{display:flex;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.timeline li:last-child{border-bottom:0}
+.tl-dot-fill{flex:none;width:14px;height:14px;background:var(--fg)}
+.tl-dot-fill.active{background:var(--red)}
+.tl-dot-empty{flex:none;width:12px;height:12px;border:1px solid #8A857D}
+.tl-label{flex:1;font-weight:600}
+.tl-date{font-size:14px;color:var(--muted)}
+
+/* TEAM */
+.team-header{display:flex;flex-wrap:nowrap;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 40px}
+.team-chess{flex:none;display:flex;align-items:flex-end;padding:0 8px;border-bottom:1px solid var(--border2)}
+.team-chess img{display:block;height:clamp(72px,12vw,168px);width:auto;filter:grayscale(1) contrast(1.2) brightness(.9) drop-shadow(0 12px 18px rgba(0,0,0,.7))}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border:2px solid var(--fg)}
+.team-card{display:flex;flex-direction:column}
+.team-card.light{background:var(--fg);color:var(--bg)}
+.team-card.dark{background:var(--bg);color:var(--fg)}
+.team-photo{position:relative;aspect-ratio:4/5;overflow:hidden}
+.team-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1) contrast(1.2) brightness(.92)}
+.team-photo-kaden img{object-position:50% 30%}
+.team-photo-sully img{object-position:30% 50%}
+.team-photo-abigail img{object-position:50% 15%;transform:scale(1.04);transform-origin:50% 25%}
+.team-photo-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%);pointer-events:none}
+.team-photo-grain{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:overlay;opacity:.6;pointer-events:none}
+.team-body{padding:24px 24px 28px;display:flex;flex-direction:column;gap:10px}
+.team-role{display:flex;align-items:center;gap:10px}
+.team-role-label{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.team-card.dark .team-role-label{color:#E8332A}
+.team-name{font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;font-size:24px;line-height:1.1;text-transform:uppercase}
+.team-bio{font-size:15px}
+.team-card.light .team-bio{color:#3A3733}
+.team-card.dark .team-bio{color:var(--mid)}
+.team-bio a{color:var(--red)}
+
+/* CONTACT / SIGNUP */
+.contact-section{position:relative;text-align:center;padding:clamp(72px,10vw,136px) clamp(16px,4vw,48px);overflow:hidden;border-top:1px solid var(--border)}
+.contact-glow{position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(184,42,36,.16) 0%,rgba(11,11,12,0) 65%);pointer-events:none}
+.contact-heading{position:relative;margin:0 auto;max-width:860px;font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;filter:url(#grit);font-size:clamp(38px,6vw,76px);line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--red)}
+.contact-sub{position:relative;margin:24px auto 0;max-width:600px;color:#D9D5CE}
+
+/* MAILING LIST FORM */
+#signup{position:relative;max-width:640px;margin:44px auto 0;background:#141416;border:1px solid #3A3733;text-align:left;font-family:Inter,system-ui,sans-serif;color:var(--fg)}
+.signup-checker{height:12px;background:repeating-conic-gradient(var(--fg) 0 25%,var(--bg) 0 50%) 0 0/12px 12px}
+.signup-body{padding:clamp(24px,4vw,36px)}
+#cv-signup-form{display:flex;flex-direction:column;gap:18px}
+.signup-title{font-family:Archivo,'Arial Black',sans-serif;font-stretch:125%;font-weight:900;font-size:28px;line-height:1.1;text-transform:uppercase;color:var(--red)}
+.signup-sub{margin:8px 0 0;font-size:16px;color:var(--mid)}
+.signup-row{display:flex;flex-wrap:wrap;gap:16px}
+.signup-row label{flex:1 1 220px}
+#cv-signup-form label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+#cv-signup-form input,#cv-signup-form select{min-height:48px;padding:0 14px;border:1px solid #5A5650;background:var(--bg);color:var(--fg);font:16px Inter,system-ui,sans-serif;letter-spacing:0;text-transform:none}
+#cv-signup-form button{min-height:52px;border:0;background:var(--red);color:#fff;font:600 15px Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+#cv-signup-form button:disabled{opacity:.6;cursor:wait}
+.signup-note{margin:0;font-size:13px;color:var(--muted)}
+#cv-thanks{display:flex;flex-direction:column;gap:8px;padding:8px 0}
+#cv-thanks p{margin:0;font-size:16px;color:var(--mid)}
+.cv-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+/* DIRECT CONTACT */
+.direct-label{position:relative;margin:40px 0 0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.direct-ctas{position:relative;margin-top:16px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.direct-email{position:relative;margin:20px 0 0;font-size:14px;color:var(--muted)}
+
+/* FOOTER */
+footer .footer-inner{max-width:1240px;margin:0 auto;padding:32px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:14px;color:var(--muted)}
+.back-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+.back-link:hover{color:var(--fg)}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a class="nav-logo" href="index.html"><img src="images/logo-icon.png" alt="Triangle Rock Productions" /></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
+<!-- SVG filters -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="grit" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  10 0 0 0 -6.9" result="specks"/>
+      <feComposite in="SourceGraphic" in2="specks" operator="out" result="cut"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="w"/>
+      <feDisplacementMap in="cut" in2="w" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" seed="11"/>
+      <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="2.2" intercept="-0.6"/>
+        <feFuncG type="linear" slope="2.2" intercept="-0.6"/>
+        <feFuncB type="linear" slope="2.2" intercept="-0.6"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
+
+<!-- NAV -->
+<header>
+  <a class="nav-logo" href="https://www.trianglerockproductions.com/">
+    <img src="classical-violence-site/triangle-rock-logo.png" alt="Triangle Rock Productions">
+  </a>
+  <nav aria-label="Main">
+    <a href="https://www.trianglerockproductions.com/">Work</a>
+    <a href="https://www.trianglerockproductions.com/about.html">About</a>
+    <a href="https://www.trianglerockproductions.com/#contact">Contact</a>
+    <a href="#signup" class="nav-cta">Join the list</a>
   </nav>
+</header>
 
-  <div class="cv-wrap">
-    <h1 class="cv-title">Classical Violence</h1>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-bg-img" src="classical-violence-site/backdrop-poster.jpg" alt="" aria-hidden="true">
+  <video class="hero-bg-video" aria-hidden="true" tabindex="-1" muted autoplay loop playsinline preload="auto" disablepictureinpicture id="hero-video">
+    <source src="classical-violence-site/backdrop-720.mp4" type="video/mp4" media="(max-width:800px)">
+    <source src="classical-violence-site/backdrop-1080.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay-dark" aria-hidden="true"></div>
+  <div class="hero-overlay-radial" aria-hidden="true"></div>
+  <div class="hero-overlay-grad" aria-hidden="true"></div>
+  <svg class="hero-grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+  <p class="hero-eyebrow">A Kaden Wittig &amp; Jason Ngo Film</p>
+  <h1 class="hero-title">
+    <span>Classical</span>
+    <span>Violence</span>
+  </h1>
+  <p class="hero-synopsis">After crossing the line, disgraced boxer Elias Grey returns to the ring under the new, peculiar lights of chess-boxing, where he must grasp what it means to truly win.</p>
+  <div class="hero-ctas">
+    <a href="#teaser" class="btn-primary">
+      <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>
+      Watch the teaser
+    </a>
+    <a href="#signup" class="btn-outline">Join the list</a>
+  </div>
+</section>
 
-    <div class="cv-credits">
-      <p class="cv-credit">Directed by <span>Kaden Wittig</span></p>
-      <p class="cv-credit">Written by <span>Jason Ngo</span></p>
-      <p class="cv-credit">Produced by <span>Sully McCollum</span></p>
+<!-- CREDITS BAR -->
+<div class="credits-bar">
+  <div class="credits-inner">
+    <span>Directed by <strong>Kaden Wittig</strong></span>
+    <span>Written by <strong>Jason Ngo</strong></span>
+    <span>Produced by <strong>Sullivan McCollum</strong></span>
+    <span>Executive Producer <strong>Abigail Hutchcraft</strong></span>
+  </div>
+</div>
+
+<!-- TEASER -->
+<section id="teaser" class="section">
+  <div class="teaser-meta">
+    <h2 class="section-heading">The Teaser</h2>
+  </div>
+  <div class="cv-teaser">
+    <iframe
+      src="https://www.youtube.com/embed/qj2jALTV2gA?rel=0&modestbranding=1&playsinline=1"
+      title="Classical Violence — proof-of-concept teaser"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- CHECKER BAND -->
+<div class="checker-band" aria-hidden="true"></div>
+
+<!-- WHAT IS CHESS-BOXING -->
+<section class="section">
+  <div class="sport-deckline">
+    <span>The Sport</span><span>A Primer</span><span>The Board &amp; The Ring</span>
+  </div>
+  <h2 class="section-heading">What is chess-boxing?</h2>
+  <p class="sport-blurb">The hybrid sport that stages the ultimate battle of brains and brawn. In <span>Classical Violence</span>, chess-boxing is the backdrop for a story about honor, redemption, and learning what it truly means to win.</p>
+
+  <div class="sport-box">
+    <div class="sport-text">
+      <p><span class="dropcap">C</span>hess boxing, or chessboxing, is a <a href="https://en.wikipedia.org/wiki/Hybrid_sport" style="text-decoration-color:var(--red);text-underline-offset:3px">hybrid sport</a> that combines <a href="https://en.wikipedia.org/wiki/Chess" style="text-decoration-color:var(--red);text-underline-offset:3px">chess</a> and <a href="https://en.wikipedia.org/wiki/Boxing" style="text-decoration-color:var(--red);text-underline-offset:3px">boxing</a>.</p>
+      <p>Two combatants play alternating rounds of <a href="https://en.wikipedia.org/wiki/Blitz_chess" style="text-decoration-color:var(--red);text-underline-offset:3px">blitz chess</a> and boxing until one wins by <a href="https://en.wikipedia.org/wiki/Checkmate" style="text-decoration-color:var(--red);text-underline-offset:3px">checkmate</a> or <a href="https://en.wikipedia.org/wiki/Knockout" style="text-decoration-color:var(--red);text-underline-offset:3px">knockout</a>.</p>
+      <p>It is also possible to win by time penalty as in normal chess, and by boxing decision if there is a draw in the chess round.</p>
+      <p>Source: <a href="https://en.wikipedia.org/wiki/Chess_boxing" style="color:var(--muted)">Wikipedia, "Chess boxing."</a></p>
     </div>
-
-    <div class="cv-pawn">♟</div>
-    <p class="cv-coming-soon">Coming Soon</p>
+    <figure class="sport-imagery" aria-hidden="true">
+      <img class="sport-board" src="classical-violence-site/teaser-still-board.jpg" alt="A white king stands mid-game in front of a chess clock">
+      <img class="sport-boxer" src="classical-violence-site/teaser-still-boxer.jpg" alt="A boxer squares off in a dark ring under a single overhead light">
+      <div class="sport-overlay"></div>
+      <svg class="sport-divider" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <line x1="44" y1="0" x2="56" y2="100" stroke="#B5120E" stroke-width="4" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <span class="sport-label sport-label-board">The Board</span>
+      <span class="sport-label sport-label-ring">The Ring</span>
+      <svg class="sport-grain"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+    </figure>
   </div>
 
-  <footer>
-    <p>&copy; 2026 Triangle Rock Productions</p>
-    <p><a href="index.html" style="color: inherit;">← Back to Work</a></p>
-  </footer>
+  <p class="rules-label">The Rules</p>
+  <div class="rules-grid">
+    <div class="rule-card light">
+      <svg width="40" height="40" viewBox="0 0 36 36" fill="none" stroke="#0B0B0C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 31h10M14 27h8l-1-8h-6zM15 19l-2-5h10l-2 5M18 14V9M15.5 11.5h5M18 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/></svg>
+      <p class="rule-num">4 MIN</p>
+      <h3 class="rule-name">Of chess</h3>
+      <p class="rule-text">"The contest starts with a round of chess, followed by a boxing round, followed by another round of chess and so on."</p>
+    </div>
+    <div class="rule-card dark">
+      <svg width="40" height="40" viewBox="0 0 36 36" fill="none" stroke="#EDEAE4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15a6 6 0 0 1 6-6h6a5 5 0 0 1 5 5v7a6 6 0 0 1-6 6h-5a6 6 0 0 1-6-6zM10 17h10M14 27v4h9v-4"/></svg>
+      <p class="rule-num">2 MIN</p>
+      <h3 class="rule-name">Of boxing</h3>
+      <p class="rule-text">"In a contest there shall be 11 rounds, 6 rounds of chess, 5 rounds of boxing."</p>
+    </div>
+    <div class="rule-card light">
+      <svg width="40" height="40" viewBox="0 0 36 36" fill="none" stroke="#0B0B0C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 31h12M13 27h10l-1.5-9h-7zM14.5 18 12 9l4 3 2-5 2 5 4-3-2.5 9"/></svg>
+      <p class="rule-num">MATE OR KO</p>
+      <h3 class="rule-name">Takes it all</h3>
+      <p class="rule-text">A bout is won by "checkmate (chess round)," "exceeding the time limit (chess round)" or "KO (boxing round)."</p>
+    </div>
+  </div>
+  <p class="rules-source">Rules quoted from the World Chess Boxing Organisation (WCBO) rulebook.</p>
+</section>
 
+<!-- THE FILM / TIMELINE -->
+<div class="details-band">
+  <div class="details-checker-bg" aria-hidden="true"></div>
+  <div class="details-radial" aria-hidden="true"></div>
+  <div class="details-inner">
+    <div class="film-info">
+      <h2 class="section-heading">The Film</h2>
+      <dl>
+        <dt>Format</dt><dd>Narrative short · 10–15 min (est.)</dd>
+        <dt>Genre</dt><dd>Sports drama</dd>
+        <dt>Director</dt><dd>Kaden Wittig</dd>
+        <dt>Writer</dt><dd>Jason Ngo</dd>
+        <dt>Producer</dt><dd>Sullivan McCollum</dd>
+        <dt>Executive Producer</dt><dd>Abigail Hutchcraft</dd>
+        <dt>Production Company</dt><dd>Triangle Rock Productions</dd>
+      </dl>
+    </div>
+    <div class="timeline">
+      <p class="timeline-eyebrow">Where we are</p>
+      <ol>
+        <li>
+          <span class="tl-dot-fill"></span>
+          <span class="tl-label">Script development</span>
+          <span class="tl-date">In progress</span>
+        </li>
+        <li>
+          <span class="tl-dot-fill active"></span>
+          <span class="tl-label">Proof-of-concept teaser</span>
+          <span class="tl-date">Oct 2026</span>
+        </li>
+        <li>
+          <span class="tl-dot-empty"></span>
+          <span class="tl-label">Fundraising &amp; Pre-Production</span>
+          <span class="tl-date">Spring 2027</span>
+        </li>
+        <li>
+          <span class="tl-dot-empty"></span>
+          <span class="tl-label">Production</span>
+          <span class="tl-date">Summer 2027</span>
+        </li>
+        <li>
+          <span class="tl-dot-empty"></span>
+          <span class="tl-label">Festival run &amp; distribution</span>
+          <span class="tl-date">Late 2027</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- THE TEAM -->
+<section class="section" style="padding-top:0">
+  <div class="team-header">
+    <div>
+      <h2 class="section-heading">The Team</h2>
+      <p style="margin:12px 0 0;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)">The Players Behind the Scenes</p>
+    </div>
+    <div class="team-chess" aria-hidden="true">
+      <img src="classical-violence-site/team-chess-pieces.png" alt="">
+    </div>
+  </div>
+
+  <div class="team-grid">
+
+    <!-- Kaden -->
+    <article class="team-card light">
+      <div class="team-photo team-photo-kaden">
+        <img src="classical-violence-site/kaden-wittig-headshot.jpg" alt="Kaden Wittig">
+        <div class="team-photo-overlay"></div>
+        <svg class="team-photo-grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+      </div>
+      <div class="team-body">
+        <div class="team-role">
+          <svg width="26" height="26" viewBox="0 0 36 36" fill="none" stroke="#0B0B0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 31h12M13 27h10M14 27l1.5-10h5L22 27M13.5 17h9M18 17c-3-1-4-4-2-6h4c2 2 1 5-2 6M18 11V4.5M15.5 7h5"/></svg>
+          <span class="team-role-label">Director</span>
+        </div>
+        <h3 class="team-name">Kaden Wittig</h3>
+        <p class="team-bio">Kaden is an award-winning independent filmmaker from Broken Arrow, Oklahoma, with experience spanning feature films, broadcast television, documentary and commercial video.</p>
+        <p class="team-bio">Starting with home videos at age 6, he has since written and directed multiple festival award-winning short films and directed the Telly Award-winning feature music documentary <em>Pillar: Beyond the Frontline</em> (2025). A graduate of Tulsa Tech's TV Production program, he earned his B.A. in Film and Media Studies from the University of Oklahoma, magna cum laude. See more at <a href="https://www.kadenwittig.com/">kadenwittig.com</a>.</p>
+      </div>
+    </article>
+
+    <!-- Jason -->
+    <article class="team-card dark">
+      <div class="team-photo">
+        <img src="classical-violence-site/jason-ngo-headshot.jpg" alt="Jason Ngo">
+        <div class="team-photo-overlay"></div>
+        <svg class="team-photo-grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+      </div>
+      <div class="team-body">
+        <div class="team-role">
+          <svg width="26" height="26" viewBox="0 0 36 36" fill="none" stroke="#EDEAE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 31h12M13 27h10M14.5 27l1-7h5l1 7M14 20h8M18 20c-4-2-4-8 0-12 4 4 4 10 0 12M18 8V5.5M16.5 12.5l3-3"/></svg>
+          <span class="team-role-label">Writer</span>
+        </div>
+        <h3 class="team-name">Jason Ngo</h3>
+        <p class="team-bio">Jason is a passionate, award-winning screenwriter and filmmaker. He wrote the award-winning 48 Hour Film Project short <em>Murder in Chinatown</em> and was a copywriter for the <em>SwapUp</em> show with VI Marketing and TSET.</p>
+        <p class="team-bio">In addition to his experience as a screenwriter, he is an established graphic designer and cinematographer, and a No. 1-ranked photographer with <em>Maxim</em> magazine.</p>
+      </div>
+    </article>
+
+    <!-- Sullivan -->
+    <article class="team-card light">
+      <div class="team-photo team-photo-sully">
+        <img src="classical-violence-site/sullivan-mccollum-headshot.jpg" alt="Sullivan McCollum">
+        <div class="team-photo-overlay"></div>
+        <svg class="team-photo-grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+      </div>
+      <div class="team-body">
+        <div class="team-role">
+          <svg width="26" height="26" viewBox="0 0 36 36" fill="none" stroke="#0B0B0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 31h14M12 27h12M14 27l1-11h6l1 11M12 16h12V9h-2.5v3h-2.5V9h-2v3h-2.5V9H12z"/></svg>
+          <span class="team-role-label">Producer</span>
+        </div>
+        <h3 class="team-name">Sullivan McCollum</h3>
+        <p class="team-bio">Sullivan is a young producer with experience in nearly every department on a film set. He's produced nearly 20 short films including <em>Go For Broke</em>, <em>Cowboy, Cowboy, Cowboy</em>, and award-winning short, <em>Murder In Chinatown</em>.</p>
+        <p class="team-bio">His deep passion for storytelling through production management and logistics drives his commitment to creating organized, collaborative environments where creativity can thrive.</p>
+        <p class="team-bio">With a hands-on understanding of filmmaking from development through post-production, Sullivan brings both a producer's eye for detail and a filmmaker's appreciation for the creative process to every project.</p>
+      </div>
+    </article>
+
+    <!-- Abigail -->
+    <article class="team-card dark">
+      <div class="team-photo team-photo-abigail">
+        <img src="classical-violence-site/abigail-hutchcraft-headshot.jpg" alt="Abigail Hutchcraft">
+        <div class="team-photo-overlay"></div>
+        <svg class="team-photo-grain" aria-hidden="true"><rect width="100%" height="100%" filter="url(#grain)"/></svg>
+      </div>
+      <div class="team-body">
+        <div class="team-role">
+          <svg width="26" height="26" viewBox="0 0 36 36" fill="none" stroke="#EDEAE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 31h12M13 27h10l-1.5-9h-7zM14.5 18 12 9l4 3 2-5 2 5 4-3-2.5 9"/></svg>
+          <span class="team-role-label">Executive Producer</span>
+        </div>
+        <h3 class="team-name">Abigail Hutchcraft</h3>
+        <p class="team-bio">Abigail is a producer from Broken Arrow, OK, co-founder and Director of Operations at Triangle Rock Productions, and J.D. candidate at Oklahoma City University School of Law. She executive produced the award-winning short <em>Murder in Chinatown</em> and has worked on short films such as <em>Up(LIFTING)</em> and <em>From a Distance</em>.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- CONTACT / SIGNUP -->
+<section class="contact-section" id="contact">
+  <div class="contact-glow" aria-hidden="true"></div>
+  <h2 class="contact-heading">Step into the ring with us</h2>
+  <p class="contact-sub">We're raising funds and building our team. Investors, partners, cast and crew: we'd love to talk.</p>
+
+  <div id="signup">
+    <div class="signup-checker" aria-hidden="true"></div>
+    <div class="signup-body">
+      <form id="cv-signup-form" novalidate>
+        <div>
+          <h3 class="signup-title">Join the list</h3>
+          <p class="signup-sub">Get production updates, casting calls and premiere news by email.</p>
+        </div>
+        <div class="signup-row">
+          <label>Name
+            <input type="text" name="name" autocomplete="name" placeholder="Your name">
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+        <label>I'm interested as
+          <select name="interest">
+            <option value="Supporter">A supporter / fan</option>
+            <option value="Investor">An investor</option>
+            <option value="Partner">A partner or sponsor</option>
+            <option value="Cast">Cast</option>
+            <option value="Crew">Crew</option>
+          </select>
+        </label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="cv-hp">
+        <input type="hidden" name="source" value="Classical Violence page">
+        <button type="submit">Join the list</button>
+        <p class="signup-note" id="cv-msg" role="status">No spam. Unsubscribe anytime.</p>
+      </form>
+      <div id="cv-thanks" hidden role="status">
+        <h3 class="signup-title">You're on the list.</h3>
+        <p>Thanks for signing up. We'll keep you posted on the road to the ring.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="direct-label">Or reach out directly</p>
+  <div class="direct-ctas">
+    <a href="mailto:trianglerockproductions@gmail.com" class="btn-outline">Email us</a>
+  </div>
+  <p class="direct-email">trianglerockproductions@gmail.com</p>
+</section>
+
+<!-- CHECKER BAND -->
+<div class="checker-band-sm" aria-hidden="true"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="https://www.trianglerockproductions.com/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+      Back to Work
+    </a>
+    <span>© 2026 Triangle Rock Productions</span>
+  </div>
+</footer>
+
+<script>
+// Video fade-in
+(function(){
+  var v = document.getElementById('hero-video');
+  if(!v) return;
+  function onReady(){
+    v.muted = true;
+    var p = v.play && v.play();
+    if(p && p.catch) p.catch(function(){});
+  }
+  v.addEventListener('canplaythrough', function(){
+    onReady();
+    v.classList.add('ready');
+  }, {once:true});
+  v.addEventListener('playing', function(){
+    v.classList.add('ready');
+  }, {once:true});
+  onReady();
+})();
+
+// Mailing list form
+(function(){
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDJYdl_Y6I3byvRpwEVe3Z9h0AJZtYvyLxfJwIZIv5D7J0y5GbcGU5912BZ-qrUDN90Q/exec';
+  var form = document.getElementById('cv-signup-form');
+  var msg = document.getElementById('cv-msg');
+  var thanks = document.getElementById('cv-thanks');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = (form.email.value || '').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      msg.textContent = 'Please enter a valid email address.';
+      form.email.focus();
+      return;
+    }
+    var btn = form.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Joining…';
+    fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', body: new FormData(form)})
+      .then(function(){
+        form.hidden = true;
+        thanks.hidden = false;
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Join the list';
+        msg.textContent = 'Something went wrong. Please try again, or email trianglerockproductions@gmail.com.';
+      });
+  });
+})();
+</script>
 </body>
 </html>
