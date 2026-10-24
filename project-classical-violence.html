@@ -557,7 +557,7 @@ footer .footer-inner{max-width:1240px;margin:0 auto;padding:32px clamp(16px,4vw,
     var btn = form.querySelector('button');
     btn.disabled = true; btn.textContent = 'Joining...';
     var done = false;
-    function showThanks(){ if(done) return; done=true; form.hidden=true; thanks.hidden=false; }
+    function showThanks(){ if(done) return; done=true; form.style.display='none'; thanks.removeAttribute('hidden'); thanks.style.display='flex'; }
     setTimeout(showThanks, 4000);
     fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', body: new FormData(form)})
       .then(showThanks)
